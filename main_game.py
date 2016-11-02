@@ -45,6 +45,7 @@ class Nom:
         os.chdir('D:/2016/2d gp/project/image')
         self.x,self.y=70,80
         self.frame=0
+        self.life=3
         self.image=load_image('nomrunver2.png')
         self.dir=1
         self.jump_frames1=0
@@ -60,7 +61,8 @@ class Nom:
         self.frame=(self.frame+1)%6
         self.jump()
         self.jump2()
-        if self.timer>=100:
+        self.damage()
+        if self.timer>=1000:
             if stage==0:
                 self.x+=speed
                 if self.x>=600:
@@ -97,7 +99,7 @@ class Nom:
                 self.y-=speed
                 if self.y<=180:
                     self.state=4
-                    if self.y<=80:`
+                    if self.y<=80:
                         self.y=80
                         self.x=70
                         self.timer=0
@@ -105,6 +107,13 @@ class Nom:
                         stage=0
                 pass
             pass
+    def damage(self):
+        global stage
+        if (self.life == 0):
+            game_framework.change_state(title)
+        if(self.state==5and self.frame==5):
+            self.life-=1
+            self.state=stage
 
     def jump2(self):
         if self.jumping == 2:
@@ -163,6 +172,7 @@ class Nom:
             pass
 
     pass
+
     def jump(self):
         if self.jumping==0:
             self.jump_frames1=0
@@ -214,8 +224,19 @@ class Nom:
                     self.jump_frames2 = 0
                     self.jumping = 0
             pass
-
     pass
+    def handle_event(self, event):
+        global speed
+        if (event.type, event.key) == (SDL_KEYDOWN, SDLK_u):
+            speed = min(speed + 5, 40)
+        elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_d):
+            speed = min(speed - 5, 40)
+        elif (event.type, event.key) == (SDL_KEYDOWN, SDLK_SPACE):
+            if self.jumping == 1:
+                self.jumping = 2
+            elif self.jumping == 0:
+                self.jumping = 1
+            pass
     def draw(self):
         self.image.clip_draw(self.frame*100,self.state*100,100,100,self.x,self.y)
 
@@ -225,7 +246,7 @@ class Attack:
         os.chdir('D:/2016/2d gp/project/image')
         self.image=load_image('attackver2.png')
         self.x=800
-        self.y=50
+        self.y=80
         self.state=0
         self.drop=random.randint(0,10)%5
         self.timer=random.randint(0,100)*5
@@ -264,22 +285,30 @@ class Attack:
         if stage == 0:
             self.state = 0
             self.x = 800
-            self.y = 50
+            self.y = 80
             pass
         elif stage == 1:
             self.state = 1
-            self.x = 750
+            self.x = 720
             self.y = 600
             pass
         elif stage == 2:
             self.state = 2
-            self.x, self.y = 0, 550
+            self.x, self.y = 0, 520
             pass
         elif stage == 3:
             self.state = 3
-            self.x, self.y = 50, 0
+            self.x, self.y = 80, 0
             pass
-
+def damagenom():
+    global nom
+    global attack
+    global stage
+    for i in attack:
+        if (nom.x <= i.x and nom.x+80>=i.x and nom.y <= i.y and nom.y<=i.y+80 ):
+            nom.state=5
+            nom.frame=0
+    pass
 
 def enter():
     global nom,baground,attack,back
@@ -312,22 +341,12 @@ def handle_events():
     for event in events:
         if event.type==SDL_QUIT:
             game_framework.quit()
-        elif event.type ==SDL_KEYUP:
-            pass
-        elif event.type ==SDL_KEYDOWN:
-            if event.key==SDLK_ESCAPE:
+        elif event.type ==SDL_KEYDOWN and event.key== SDLK_ESCAPE:
                 game_framework.change_state(title)
-            elif event.key == SDLK_u:
-                speed=min(speed+5,40)
-            elif event.key == SDLK_d:
-                 speed=max(speed-5,5)
-            elif event.key ==SDLK_SPACE:
-                if nom.jumping==1:
-                    nom.jumping=2
-                elif nom.jumping==0:
-                    nom.jumping=1
-                else:
-                    pass
+        else:
+            nom.handle_event(event)
+
+
 
     pass
 
@@ -336,6 +355,7 @@ def update():
     nom.update()
     for i in attack:
         i.update()
+    damagenom()
     pass
 def draw():
     global speed
