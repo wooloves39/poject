@@ -53,57 +53,66 @@ class Nom:
         self.jumping=0
         self.timer=0
         self.state=0
+        self.framestate=8
     def update(self):
         global stage
         if self.state==4:
             self.jumping=0
         self.timer+=1
-        self.frame=(self.frame+1)%6
+        self.frame=(self.frame+1)%self.framestate
         self.jump()
         self.jump2()
         self.damage()
-        if self.timer>=1000:
+        if self.timer>=100:
             if stage==0:
                 self.x+=speed
                 if self.x>=600:
                     self.state=4
+                    self.framestate=6
                     if self.x>=700 :
                         self.x=720
                         self.y=70
                         self.timer=0
                         self.state=1
+                        self.framestate = 8
                         stage=1
             elif stage==1:
                 self.y+=speed
                 if self.y>=400:
                     self.state=4
+                    self.framestate = 6
                     if self.y>=500:
                         self.y=520
                         self.x=730
                         self.timer=0
                         self.state=2
+                        self.framestate = 8
                         stage=2
                 pass
             elif stage==2:
                 self.x-=speed
                 if self.x<=170:
                     self.state=4
+                    self.framestate = 6
                     if self.x<=70:
                         self.x=80
                         self.y=530
                         self.timer = 0
                         self.state = 3
+                        self.framestate = 8
                         stage=3
                 pass
             elif stage==3:
                 self.y-=speed
                 if self.y<=180:
                     self.state=4
+                    self.framestate = 6
                     if self.y<=80:
                         self.y=80
                         self.x=70
                         self.timer=0
                         self.state=0
+                        self.framestate = 8
                         stage=0
                 pass
             pass
@@ -111,7 +120,7 @@ class Nom:
         global stage
         if (self.life == 0):
             game_framework.change_state(title)
-        if(self.state==5and self.frame==5):
+        if((self.state>=5)and self.frame==5):
             self.life-=1
             self.state=stage
 
@@ -306,7 +315,7 @@ def damagenom():
     global stage
     for i in attack:
         if (nom.x <= i.x and nom.x+80>=i.x and nom.y <= i.y and nom.y<=i.y+80 ):
-            nom.state=5
+            nom.state=nom.state+5
             nom.frame=0
     pass
 
@@ -351,14 +360,16 @@ def handle_events():
     pass
 
 def update():
+    global attack
     back.update()
     nom.update()
+    print(nom.state)
     for i in attack:
         i.update()
     damagenom()
     pass
 def draw():
-    global speed
+    global speed,attack
     clear_canvas()
     back.draw()
     baground.draw()
