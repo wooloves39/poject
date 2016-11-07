@@ -54,6 +54,7 @@ class Nom:
         self.timer=0
         self.state=0
         self.framestate=8
+        self.attaktime=0
     def update(self):
         global stage
         if self.state==4:
@@ -123,6 +124,7 @@ class Nom:
         if((self.state>=5)and self.frame==5):
             self.life-=1
             self.state=stage
+            self.attaktime=0
 
     def jump2(self):
         if self.jumping == 2:
@@ -314,10 +316,29 @@ def damagenom():
     global attack
     global stage
     for i in attack:
-        if (nom.x <= i.x and nom.x+80>=i.x and nom.y <= i.y and nom.y<=i.y+80 ):
-            nom.state=nom.state+5
-            nom.frame=0
-    pass
+        if(nom.attaktime==0):
+            if(stage==0):
+                if (nom.x <= i.x and nom.x+80>=i.x and nom.y <= i.y and nom.y<=i.y+80 ):
+                    nom.state=nom.state+5
+                    nom.frame=0
+                    nom.attaktime=1
+            elif(stage==1):
+                if (nom.x <= i.x and nom.x+80>=i.x and nom.y+80 >= i.y and nom.y<=i.y ):
+                    print(12)
+                    nom.state=nom.state+5
+                    nom.frame=0
+                    nom.attaktime=1
+            elif (stage == 2):
+                if (nom.x <= i.x and nom.x + 80 >= i.x and nom.y <= i.y and nom.y <= i.y + 80):
+                    nom.state = nom.state + 5
+                    nom.frame = 0
+                    nom.attaktime = 1
+            elif (stage == 3):
+                if (nom.x <= i.x and nom.x + 80 >= i.x and nom.y <= i.y and nom.y <= i.y + 80):
+                    nom.state = nom.state + 5
+                    nom.frame = 0
+                    nom.attaktime = 1
+            pass
 
 def enter():
     global nom,baground,attack,back
@@ -363,10 +384,10 @@ def update():
     global attack
     back.update()
     nom.update()
-    print(nom.state)
     for i in attack:
         i.update()
     damagenom()
+
     pass
 def draw():
     global speed,attack
