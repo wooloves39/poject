@@ -9,6 +9,7 @@ import game_framework
 import title
 
 name='MAIN GAME'
+life=None
 nom=None
 baground=None
 font=None
@@ -16,7 +17,31 @@ attack=None
 attack1=None
 speed=20
 stage=0
+score=0
+font=None
 backg=None
+class Life:
+    def __init__(self):
+        import os
+        os.chdir('D:/2016/2d gp/project/image')
+        self.image = load_image('nomlife.png')
+        self.switch=3
+    def draw(self):
+        global stage
+        if(stage==0):
+            for i in range(self.switch):
+                self.image.clip_draw(0, stage*50, 50, 50, 350+i*50, 550)
+        elif(stage==1):
+            for i in range(self.switch):
+                self.image.clip_draw(0, stage*50, 50, 50, 50, 250+i*50)
+        elif (stage == 2):
+            for i in range(self.switch):
+                self.image.clip_draw(0, stage * 50, 50, 50, 450 - i * 50, 50)
+        elif (stage == 3):
+            for i in range(self.switch):
+                self.image.clip_draw(0, stage * 50, 50, 50, 750, 350-i*50)
+        pass
+    pass
 class Background:
     def __init__(self):
         import os
@@ -123,12 +148,14 @@ class Nom:
             pass
     def damage(self):
         global stage
+        global life
         if (self.life == 0):
             game_framework.change_state(title)
         if((self.state>=5)and self.frame==5):
             self.life-=1
             self.state=stage
             self.attaktime=0
+            life.switch-=1
 
     def jump2(self):
         if self.jumping == 2:
@@ -319,6 +346,7 @@ def damagenom():
     global nom
     global attack
     global stage
+    global life
     for i in attack:
         if(nom.attaktime==0):
             if(stage==0):
@@ -326,17 +354,20 @@ def damagenom():
                     nom.state=nom.state+5
                     nom.frame=0
                     nom.attaktime=1
+
             elif(stage==1):
                 if (nom.x <= i.x and nom.x+80>=i.x and nom.y+80 >= i.y and nom.y<=i.y ):
                     print(12)
                     nom.state=nom.state+5
                     nom.frame=0
                     nom.attaktime=1
+
             elif (stage == 2):
                 if (nom.x <= i.x+80 and nom.x + 80 >= i.x+80 and nom.y >= i.y and nom.y+80 >= i.y):
                     nom.state = nom.state + 5
                     nom.frame = 0
                     nom.attaktime = 1
+
             elif (stage == 3):
                 if (nom.x <= i.x+80and nom.x + 80 >= i.x+80 and nom.y <= i.y+80 and nom.y+80 >= i.y + 80):
                     nom.state = nom.state + 5
@@ -345,10 +376,12 @@ def damagenom():
             pass
 
 def enter():
-    global nom,baground,attack,back
+    global nom,baground,attack,back,life,font
     nom=Nom()
     baground=Baground()
+    life=Life()
     i=0
+    font=load_font('ENCR10B.TTF')
     attack=[Attack() for i in range(10)]
     back=Background()
 
@@ -356,11 +389,13 @@ def enter():
 
 
 def exit():
-    global nom, baground, attack, back
+    global nom, baground, attack, back,font
     del(nom)
     del(baground)
     del(attack)
     del(back)
+    del(life)
+    del(font)
     pass
 def pause():
     pass
@@ -385,7 +420,9 @@ def handle_events():
     pass
 
 def update():
-    global attack
+    global attack,score
+    score+=1
+    print(score)
     back.update()
     nom.update()
     for i in attack:
@@ -394,11 +431,13 @@ def update():
 
     pass
 def draw():
-    global speed,attack
+    global speed,attack,score
     clear_canvas()
     back.draw()
     baground.draw()
     nom.draw()
+    life.draw()
+    font.draw(40,30,'sdasd')
     for i in attack:
         i.draw()
     update_canvas()
