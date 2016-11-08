@@ -70,6 +70,7 @@ class Nom:
                 if self.x>=600:
                     self.state=4
                     self.framestate=6
+                    self.attaktime=0
                     if self.x>=700 :
                         self.x=720
                         self.y=70
@@ -82,6 +83,7 @@ class Nom:
                 if self.y>=400:
                     self.state=4
                     self.framestate = 6
+                    self.attaktime = 0
                     if self.y>=500:
                         self.y=520
                         self.x=730
@@ -95,6 +97,7 @@ class Nom:
                 if self.x<=170:
                     self.state=4
                     self.framestate = 6
+                    self.attaktime = 0
                     if self.x<=70:
                         self.x=80
                         self.y=530
@@ -108,6 +111,7 @@ class Nom:
                 if self.y<=180:
                     self.state=4
                     self.framestate = 6
+                    self.attaktime = 0
                     if self.y<=80:
                         self.y=80
                         self.x=70
@@ -329,12 +333,12 @@ def damagenom():
                     nom.frame=0
                     nom.attaktime=1
             elif (stage == 2):
-                if (nom.x <= i.x and nom.x + 80 >= i.x and nom.y <= i.y and nom.y <= i.y + 80):
+                if (nom.x <= i.x+80 and nom.x + 80 >= i.x+80 and nom.y >= i.y and nom.y+80 >= i.y):
                     nom.state = nom.state + 5
                     nom.frame = 0
                     nom.attaktime = 1
             elif (stage == 3):
-                if (nom.x <= i.x and nom.x + 80 >= i.x and nom.y <= i.y and nom.y <= i.y + 80):
+                if (nom.x <= i.x+80and nom.x + 80 >= i.x+80 and nom.y <= i.y+80 and nom.y+80 >= i.y + 80):
                     nom.state = nom.state + 5
                     nom.frame = 0
                     nom.attaktime = 1
