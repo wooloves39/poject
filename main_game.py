@@ -31,6 +31,7 @@ class Life:
         if(stage==0):
             for i in range(self.switch):
                 self.image.clip_draw(0, stage*50, 50, 50, 350+i*50, 550)
+
         elif(stage==1):
             for i in range(self.switch):
                 self.image.clip_draw(0, stage*50, 50, 50, 50, 250+i*50)
@@ -437,7 +438,7 @@ def draw():
     baground.draw()
     nom.draw()
     life.draw()
-    font.draw(40,30,'sdasd')
+    font.draw(350, 350, 'score:%d' % score)
     for i in attack:
         i.draw()
     update_canvas()
