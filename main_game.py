@@ -431,7 +431,7 @@ def update():
         i.update()
     nom.update()
     bosstimer += 1
-    if (bosstimer == 100):
+    if (bosstimer == 500):
         game_framework.change_state(bossready)
     pass
 def draw():

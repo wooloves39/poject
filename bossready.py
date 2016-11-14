@@ -5,27 +5,30 @@ name = "StartState"
 image = None
 logo_time = 0.0
 nom=None
-font = None
-
+talk=None
+i=0
 def enter():
     import os
     os.chdir('D:/2016/2d gp/project/image')
-    global image,nom,font
+    global image,nom,talk
     nom=load_image('NOM.png')
     image=load_image('boss.png')
-    font = load_font('ENCR10B.TTF', 30)
+    talk=load_image("talking.png")
     pass
 
 
 def exit():
-    global image,nom,font
+    global image,nom,talk
     del(image)
     del (nom)
-    del (font)
+    del (talk)
     pass
 
 
 def update():
+    global i
+    i+=1
+
     pass
 
 
@@ -33,9 +36,10 @@ def draw():
     clear_canvas()
     image.clip_draw(0,0, 200, 160, 500, 350)
     nom.draw(70,70)
-    font.draw(500, 480, 'But the neoneuntoe waedasi to appear!!')
-    font.draw(70, 150, 'So I am going to make me regret my.', (128, 128, 128))
+    talk.clip_draw(0,i*100,100,100,650,450)
+    talk.clip_draw(100,i*100,100,100,150,180)
     update_canvas()
+    delay(3)
     pass
 
 
@@ -43,15 +47,6 @@ def draw():
 
 
 def handle_events():
-    events=get_events()
-    for event in events:
-        if event.type==SDL_QUIT:
-            game_framework.quit()
-        else:
-            if(event.type,event.key)==(SDL_KEYDOWN,SDLK_ESCAPE):
-                game_framework.quit()
-            elif (event.type)==(SDL_KEYDOWN)and (event.key)!=(SDLK_ESCAPE):
-                game_framework.change_state(main_game)
     pass
 
 
