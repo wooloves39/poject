@@ -7,7 +7,7 @@ os.chdir('D:/2016/2d gp/project/image')
 from pico2d import *
 import game_framework
 import title
-
+import bossready
 name='MAIN GAME'
 life=None
 nom=None
@@ -20,6 +20,7 @@ stage=0
 score=0
 font=None
 backg=None
+bosstimer=0
 class Life:
     def __init__(self):
         import os
@@ -151,6 +152,7 @@ class Nom:
         global stage
         global life
         if (self.life == 0):
+            print('dd')
             game_framework.change_state(title)
         if((self.state>=5)and self.frame==5):
             self.life-=1
@@ -358,7 +360,6 @@ def damagenom():
 
             elif(stage==1):
                 if (nom.x <= i.x and nom.x+80>=i.x and nom.y+80 >= i.y and nom.y<=i.y ):
-                    print(12)
                     nom.state=nom.state+5
                     nom.frame=0
                     nom.attaktime=1
@@ -390,7 +391,7 @@ def enter():
 
 
 def exit():
-    global nom, baground, attack, back,font
+    global nom, baground, attack, back,font,life
     del(nom)
     del(baground)
     del(attack)
@@ -421,15 +422,17 @@ def handle_events():
     pass
 
 def update():
-    global attack,score
+    global attack,score,bosstimer
     score+=1
-    print(score)
     back.update()
-    nom.update()
+
+    damagenom()
     for i in attack:
         i.update()
-    damagenom()
-
+    nom.update()
+    bosstimer += 1
+    if (bosstimer == 100):
+        game_framework.change_state(bossready)
     pass
 def draw():
     global speed,attack,score
