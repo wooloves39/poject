@@ -100,9 +100,7 @@ class Nom:
                 pass
             pass
     def damage(self):
-        global stage
-        global life
-        if (self.life == 0):
+        if (self.life <= 0):
             game_framework.change_state(title)
         if(self.powerup==1):
             self.state = Nom.stage
@@ -111,7 +109,6 @@ class Nom:
             self.life-=1
             self.state=Nom.stage
             self.attaktime=0
-            life.switch-=1
 
     def jump2(self):
         if self.jumping == 2:
@@ -238,6 +235,9 @@ class Nom:
     def draw(self):
         self.image.clip_draw(self.frame*100,self.state*100,100,100,self.x,self.y)
         delay(0.1 - self.speed / 400)
+
+    def get_bb(self):
+        return self.x - 25, self.y - 50, self.x + 25, self.y + 50
 class Life:
     def __init__(self):
         import os

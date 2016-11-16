@@ -1,7 +1,7 @@
 import game_framework
 import title
-import clear
+import playboss
 from pico2d import *
 open_canvas()
-game_framework.run(title)
+game_framework.run(playboss)
 close_canvas()

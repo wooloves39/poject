@@ -431,7 +431,7 @@ def handle_events(frame_time):
         elif event.type ==SDL_KEYDOWN and event.key== SDLK_ESCAPE:
                 game_framework.change_state(title)
         elif event.type ==SDL_KEYDOWN and event.key== SDLK_a:
-            score=540
+            score=1020
         else:
             nom.handle_event(event)
 
@@ -448,7 +448,7 @@ def update(frame_time):
     for i in attack:
         i.update()
     nom.update()
-    if (score == 550):
+    if (score == 1030):
         game_framework.change_state(bossready)
     pass
 def draw(frame_time):
