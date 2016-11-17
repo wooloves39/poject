@@ -17,42 +17,53 @@ class attack_item:
         self.x=800
         self.y=80
         self.state=0
-        self.timer = random.randint(0, 100)
+        self.timer = random.randint(0, 100)*5
+        self.ck=0
     def draw(self):
         if(self.timer==0):
             self.image.draw(self.x ,self.y)
+            draw_rectangle(*self.get_bb())
 
         pass
     def update(self,frame_time,stage):
         print(self.timer)
-        if(stage!=self.state):
-            self.chstate(stage)
-        if self.timer != 0:
-            self.timer -= 1
-        if self.timer == 0:
-            if self.state == 0:
+        if self.ck==0:
+            if(stage!=self.state):
+                self.chstate(stage)
+            if self.timer != 0:
+                self.timer -= 1
+            if self.timer == 0:
+                if self.state == 0:
+                    self.x -= attack_item.speed
+                    if self.x <= 0:
+                        self.x = 800
+                        self.timer = random.randint(0, 100)*5
+                elif self.state == 1:
+                    self.y -= attack_item.speed
+                    if self.y <= 0:
+                        self.y = 600
+                        self.timer = random.randint(0, 100)*5
+                elif self.state == 2:
+                    self.x += attack_item.speed
+                    if self.x >= 800:
+                        self.x = 0
+                        self.timer = random.randint(0, 100)*5
+                elif self.state == 3:
+                    self.y += attack_item.speed
+                    if self.y >= 600:
+                        self.y = 0
+                        self.timer = random.randint(0, 100)*5
+            self.get_bb()
+        elif self.ck == 1:
+            if self.x<=400:
+                self.x+=attack_item.speed
+            elif self.x>400:
                 self.x -= attack_item.speed
-                if self.x <= 0:
-                    self.x = 800
-                    self.timer = random.randint(0, 100)
-            elif self.state == 1:
-                self.y -= attack_item.speed
-                if self.y <= 0:
-                    self.y = 600
-                    self.timer = random.randint(0, 100)
-            elif self.state == 2:
-                self.x += attack_item.speed
-                if self.x >= 800:
-                    self.x = 0
-                    self.timer = random.randint(0, 100)
-            elif self.state == 3:
+            if self.y<=300:
                 self.y += attack_item.speed
-                if self.y >= 600:
-                    self.y = 0
-                    self.timer = random.randint(0, 100)
-
-
-        pass
+            elif self.y>300:
+                self.y -= attack_item.speed
+            pass
 
     def chstate(self,stage):
         if stage == 0:
@@ -73,17 +84,23 @@ class attack_item:
             self.state = 3
             self.x, self.y = 80, 0
             pass
+
+    def get_bb(self):
+        return self.x - 10, self.y - 10, self.x + 10, self.y + 10
 class bonus_item:
     def __init__(self):
         self.image = load_image("heart.png")
         self.x = 800
         self.y = 80
-
+        self.i=0
         self.state = 0
-        self.timer = random.randint(0, 100)
+        self.timer = random.randint(0, 100)*5
+        self.sw=0
     def draw(self):
-        if (self.timer == 0):
-            self.image.draw(self.x, self.y)
+        if(self.sw==0):
+            if (self.timer == 0):
+                draw_rectangle(*self.get_bb())
+                self.image.clip_draw(0, self.state * 50, 50, 50, self.x, self.y)
         pass
     def update(self, frame_time, stage):
         print(self.timer)
@@ -96,22 +113,27 @@ class bonus_item:
                 self.x -= attack_item.speed
                 if self.x <= 0:
                     self.x = 800
-                    self.timer = random.randint(0, 100)
+                    self.timer = random.randint(0, 100)*5
+                    self.sw=0
             elif self.state == 1:
                 self.y -= attack_item.speed
                 if self.y <= 0:
                     self.y = 600
-                    self.timer = random.randint(0, 100)
+                    self.timer = random.randint(0, 100)*5
+                    self.sw = 0
             elif self.state == 2:
                 self.x += attack_item.speed
                 if self.x >= 800:
                     self.x = 0
-                    self.timer = random.randint(0, 100)
+                    self.timer = random.randint(0, 100)*5
+                    self.sw = 0
             elif self.state == 3:
                 self.y += attack_item.speed
                 if self.y >= 600:
                     self.y = 0
-                    self.timer = random.randint(0, 100)
+                    self.timer = random.randint(0, 100)*5
+                    self.sw = 0
+        self.get_bb()
     def chstate(self, stage):
         if stage == 0:
             self.state = 0
@@ -130,3 +152,6 @@ class bonus_item:
         elif stage == 3:
             self.state = 3
             self.x, self.y = 80, 0
+
+    def get_bb(self):
+        return self.x - 25, self.y - 25, self.x + 25, self.y + 25

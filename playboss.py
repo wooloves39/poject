@@ -19,60 +19,76 @@ from boss import BossAttack
 from nom import Nom
 from nom import Life
 import title
-item=None
+items=None
 boss=None
 attack=None
 item2=None
 def enter():
     import os
     os.chdir('D:/2016/2d gp/project/image')
-    global image,nom,talk,be,boss,life,attack,item,item2
+    global image,nom,talk,be,boss,life,attack,items,item2
     game_framework.reset_time()
     boss=Boss()
     nom=Nom()
     be=load_image("bossba.png")
     attack = [BossAttack() for i in range(12)]
     life=Life()
-    item=attack_item()
+    items = [attack_item() for i in range(10)]
     item2=bonus_item()
     pass
 
 
 def exit():
-    global nom,be,boss,life,item,item2
+    global nom,be,boss,life,items,item2
     del (nom)
     del(be)
     del (boss)
-    del (item)
+    del (items)
     pass
 
 
 def update(frame_time):
-    item.update(frame_time,nom.state)
-    item2.update(frame_time,nom.state)
-    boss.update(frame_time)
     if boss.life <= 0:
         game_framework.change_state(clear)
-    for at in attack:
-        at.update(frame_time)
-    for at in attack:
-        if collide(nom, at):
-            boss.ck=1
-            attack.remove(at)
-            nom.state+=5
-            if nom.state>10:
-                nom.state-=5
-            nom.frame=0
-            nom.life-=1
-            life.switch-=1
-    nom.update(frame_time)
+    else:
+        for item in items:
+            item.update(frame_time,nom.state)
+        item2.update(frame_time,nom.state)
+        boss.update(frame_time)
+        for item in items:
+            if collide(nom,item):
+                item.ck=1
+            if collide(boss,item):
+                items.remove(item)
+                boss.life-=1
+                pass
+        if(item2.sw==0):
+            if collide(nom,item2):
+                nom.life+=1
+                life.switch+=1
+                item2.sw=1
+
+        for at in attack:
+            at.update(frame_time)
+        for at in attack:
+            if collide(nom, at):
+                boss.ck=1
+                attack.remove(at)
+                nom.state+=5
+                if nom.state>10:
+                    nom.state-=5
+                nom.frame=0
+                nom.life-=1
+                life.switch-=1
+        nom.update(frame_time)
     pass
 
 
 def draw(frame_time):
     clear_canvas()
     be.draw(400,300)
-    item.draw()
+    for item in items:
+        item.draw()
     item2.draw()
     nom.draw()
     boss.draw()
