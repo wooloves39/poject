@@ -47,9 +47,10 @@ class BossAttack:
     def draw(self):
 
         if(Boss.ck==0):
-            self.attakimage.draw(400+self.speed*Boss.at*math.cos(self.i*30*Boss.pi),300+self.speed*Boss.at*math.sin(self.i*30*Boss.pi))
-            self.x=400+self.speed*Boss.at*math.cos(self.i*30*Boss.pi)
-            self.y=300+self.speed*Boss.at*math.sin(self.i*30*Boss.pi)
+            if self.i*30%90!=0:
+                self.attakimage.draw(400+self.speed*Boss.at*math.cos(self.i*30*Boss.pi),300+self.speed*Boss.at*math.sin(self.i*30*Boss.pi))
+                self.x=400+self.speed*Boss.at*math.cos(self.i*30*Boss.pi)
+                self.y=300+self.speed*Boss.at*math.sin(self.i*30*Boss.pi)
         pass
 
     def update(self, frame_time):
