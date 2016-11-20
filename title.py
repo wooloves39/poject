@@ -4,19 +4,23 @@ import main_game
 name = "StartState"
 image = None
 logo_time = 0.0
-
+bgm=None
 
 def enter():
     import os
     os.chdir('D:/2016/2d gp/project/image')
-    global image
+    global image,bgm
     image=load_image('start.png')
+    bgm=load_music('nom title.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
     pass
 
 
 def exit():
-    global image
+    global image,bgm
     del(image)
+    del(bgm)
 
     pass
 

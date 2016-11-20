@@ -14,6 +14,9 @@ def enter():
     game_framework.reset_time()
     be=load_image("bossba.png")
     clear=load_image("clear.png")
+    bgm=load_music('ending.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
     pass
 def exit():
     global be,clear

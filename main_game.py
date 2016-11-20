@@ -18,6 +18,7 @@ attack1=None
 speed=20
 stage=0
 score=0
+bgm=None
 font=None
 backg=None
 class Life:
@@ -392,7 +393,7 @@ def damagenom():
                 pass
 
 def enter():
-    global nom,baground,attack,back,life,font
+    global nom,baground,attack,back,life,font,bgm
     nom=Nom()
     baground=Baground()
     life=Life()
@@ -400,18 +401,21 @@ def enter():
     font=load_font('ENCR10B.TTF')
     attack=[Attack() for i in range(10)]
     back=Background()
-
+    bgm=load_music('nomplay.mp3')
+    bgm.set_volume(64)
+    bgm.repeat_play()
     pass
 
 
 def exit():
-    global nom, baground, attack, back,font,life,stage,score
+    global nom, baground, attack, back,font,life,stage,score,bgm
     del(nom)
     del(baground)
     del(attack)
     del(back)
     del(life)
     del(font)
+    del(bgm)
     stage = 0
     score = 0
     pass

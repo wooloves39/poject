@@ -17,6 +17,9 @@ class Boss:
         self.life = 15
         self.ck=0
         self.i=0
+        self.bgm=load_music('bossplay.mp3')
+        self.bgm.set_volume(64)
+        self.bgm.repeat_play()
 
     def draw(self):
         self.image.clip_draw(0, self.i*160, 200, 160, 400+5*math.cos(Boss.z*Boss.pi), 300+5*math.sin(Boss.z*Boss.pi))
