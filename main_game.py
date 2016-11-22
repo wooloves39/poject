@@ -49,11 +49,11 @@ class Background:
         import os
         os.chdir('D:/2016/2d gp/project/image')
         self.image=load_image('background.png')
-        self.frame=random.randint(0,4)
+        self.frame=random.randint(0,6)
         self.changemap=stage
     def update(self):
         if self.changemap!=stage:
-            self.frame=random.randint(0,4)
+            self.frame=random.randint(0,6)
             self.changemap=stage
     def draw(self):
         self.image.clip_draw(self.frame * 800, 0, 800, 600, 400, 300)
@@ -64,8 +64,7 @@ class Baground:
         self.image=load_image('back.png')
 
     def draw(self):
-        self.image.draw(400,30)
-        self.image.draw(800,30)
+        self.image.draw(400,300)
 class Nom:
     def __init__(self):
         import os
