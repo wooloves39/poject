@@ -4,11 +4,8 @@ import item
 import main_game
 import math
 name = "StartState"
-image = None
 logo_time = 0.0
 nom=None
-talk=None
-i=0
 be=None
 life=None
 import clear
@@ -23,10 +20,11 @@ items=None
 boss=None
 attack=None
 item2=None
+back=None
 def enter():
     import os
     os.chdir('D:/2016/2d gp/project/image')
-    global image,nom,talk,be,boss,life,attack,items,item2
+    global nom,be,boss,life,attack,items,item2,back
     game_framework.reset_time()
     boss=Boss()
     nom=Nom()
@@ -35,15 +33,22 @@ def enter():
     life=Life()
     items = [attack_item() for i in range(10)]
     item2=bonus_item()
+    back=load_image("back.png")
     pass
 
 
 def exit():
-    global nom,be,boss,life,items,item2
+    global nom,be,boss,life,attack,items,item2,back
     del (nom)
     del(be)
     del (boss)
     del (items)
+    del(life)
+    del (back)
+    del(attack)
+    del(item2)
+
+
     pass
 
 
@@ -71,15 +76,17 @@ def update(frame_time):
         for at in attack:
             at.update(frame_time)
         for at in attack:
-            if collide(nom, at):
-                boss.ck=1
-                attack.remove(at)
-                nom.state+=5
-                if nom.state>10:
-                    nom.state-=5
-                nom.frame=0
-                nom.life-=1
-                life.switch-=1
+            if nom.attaktime == 0:
+                if collide(nom, at):
+                    boss.ck=1
+                    attack.remove(at)
+                    nom.state+=5
+                    nom.attacktime=1
+                    if nom.state>10:
+                        nom.state-=5
+                    nom.frame=0
+                    nom.life-=1
+                    life.switch-=1
         nom.update(frame_time)
     pass
 
@@ -87,6 +94,7 @@ def update(frame_time):
 def draw(frame_time):
     clear_canvas()
     be.draw(400,300)
+    back.draw(400,300)
     for item in items:
         item.draw()
     item2.draw()

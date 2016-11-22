@@ -31,17 +31,17 @@ class Life:
         global stage
         if(stage==0):
             for i in range(self.switch):
-                self.image.clip_draw(0, stage*50, 50, 50, 350+i*50, 550)
+                self.image.clip_draw(0, stage*50, 50, 50, 350+i*50, 520)
 
         elif(stage==1):
             for i in range(self.switch):
-                self.image.clip_draw(0, stage*50, 50, 50, 50, 250+i*50)
+                self.image.clip_draw(0, stage*50, 50, 50, 80, 250+i*50)
         elif (stage == 2):
             for i in range(self.switch):
-                self.image.clip_draw(0, stage * 50, 50, 50, 450 - i * 50, 50)
+                self.image.clip_draw(0, stage * 50, 50, 50, 450 - i * 50, 80)
         elif (stage == 3):
             for i in range(self.switch):
-                self.image.clip_draw(0, stage * 50, 50, 50, 750, 350-i*50)
+                self.image.clip_draw(0, stage * 50, 50, 50, 720, 350-i*50)
         pass
     pass
 class Background:
@@ -69,7 +69,7 @@ class Nom:
     def __init__(self):
         import os
         os.chdir('D:/2016/2d gp/project/image')
-        self.x,self.y=70,80
+        self.x,self.y=70,65
         self.frame=0
         self.life=3
         self.image=load_image('nomrunver2.png')
@@ -104,7 +104,7 @@ class Nom:
                     self.framestate=6
                     self.attaktime=0
                     if self.x>=700 :
-                        self.x=720
+                        self.x=735
                         self.y=70
                         self.timer=0
                         self.state=1
@@ -118,7 +118,7 @@ class Nom:
                     self.framestate = 6
                     self.attaktime = 0
                     if self.y>=500:
-                        self.y=520
+                        self.y=535
                         self.x=730
                         self.timer=0
                         self.state=2
@@ -133,7 +133,7 @@ class Nom:
                     self.framestate = 6
                     self.attaktime = 0
                     if self.x<=70:
-                        self.x=80
+                        self.x=65
                         self.y=530
                         self.timer = 0
                         self.state = 3
@@ -149,7 +149,7 @@ class Nom:
                     self.attaktime = 0
                     if self.y<=80:
                         self.y=80
-                        self.x=70
+                        self.x=65
                         self.timer=0
                         self.state=0
                         self.framestate = 8
@@ -302,7 +302,7 @@ class Attack:
         os.chdir('D:/2016/2d gp/project/image')
         self.image=load_image('attackver2.png')
         self.x=800
-        self.y=80
+        self.y=65
         self.state=0
         self.drop=random.randint(0,10)%5
         self.timer=random.randint(0,100)*5
@@ -341,20 +341,20 @@ class Attack:
         if stage == 0:
             self.state = 0
             self.x = 800
-            self.y = 80
+            self.y = 65
             pass
         elif stage == 1:
             self.state = 1
-            self.x = 720
+            self.x = 735
             self.y = 600
             pass
         elif stage == 2:
             self.state = 2
-            self.x, self.y = 0, 520
+            self.x, self.y = 0, 535
             pass
         elif stage == 3:
             self.state = 3
-            self.x, self.y = 80, 0
+            self.x, self.y = 65, 0
             pass
 def damagenom():
     global nom

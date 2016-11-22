@@ -13,17 +13,18 @@ be=None
 bgm1=None
 bgm2=None
 z=0
+back=None
 def enter():
     import os
     os.chdir('D:/2016/2d gp/project/image')
-    global image,nom,talk,be,bgm1,bgm2
+    global image,nom,talk,be,bgm1,bgm2,back
     game_framework.reset_time()
     bgm1=load_music('boss.mp3')
     bgm1.set_volume(64)
     bgm1.play()
     bgm2 = load_music('talk.mp3')
     bgm2.set_volume(64)
-
+    back=load_image("back.png");
     nom=load_image('NOM.png')
     image=load_image('boss.png')
     talk=load_image("talking.png")
@@ -32,13 +33,14 @@ def enter():
 
 
 def exit():
-    global image,nom,talk,be,bgm1,bgm2,i,z
+    global image,nom,talk,be,bgm1,bgm2,i,z,back
     del(image)
     del (nom)
     del (talk)
     del(be)
     del (bgm1)
     del (bgm2)
+    del(back)
     i=0
     z=0
 
@@ -64,6 +66,7 @@ def draw(frame_time):
     nom.draw(70,70)
     talk.clip_draw(0,i*100,100,100,650,450)
     talk.clip_draw(100,i*100,100,100,150,180)
+    back.draw(400,300)
     if (z >= 2):
         bgm2.play()
     update_canvas()
