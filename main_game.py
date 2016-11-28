@@ -14,13 +14,13 @@ nom=None
 baground=None
 font=None
 attack=None
-attack1=None
 speed=20
 stage=0
 score=0
 bgm=None
 font=None
 backg=None
+attack2=None
 class Life:
     def __init__(self):
         import os
@@ -148,7 +148,7 @@ class Nom:
                     self.framestate = 6
                     self.attaktime = 0
                     if self.y<=80:
-                        self.y=80
+                        self.y=70
                         self.x=65
                         self.timer=0
                         self.state=0
@@ -295,6 +295,8 @@ class Nom:
             pass
     def draw(self):
         self.image.clip_draw(self.frame*100,self.state*100,100,100,self.x,self.y)
+    def get_bb(self):
+        return self.x - 25, self.y - 50, self.x + 25, self.y + 50
 
 class Attack:
     def __init__(self):
@@ -356,11 +358,39 @@ class Attack:
             self.state = 3
             self.x, self.y = 65, 0
             pass
+
+    def get_bb(self):
+        return self.x - 50, self.y - 50, self.x + 50, self.y + 50
+class BigAttack(Attack):
+    image = None
+    def __init__(self):
+        import os
+        os.chdir('D:/2016/2d gp/project/image')
+        self.image = load_image('attack22.png')
+        self.x = 800
+        self.y = 65
+        self.state = 0
+        self.drop = random.randint(0, 3)
+        self.timer = random.randint(0, 100) * 5
+    def draw(self):
+        if self.timer == 0:
+            self.image.clip_draw(self.drop * 200, self.state * 200, 200, 200, self.x, self.y)
+    def get_bb(self):
+        return self.x - 100, self.y - 100, self.x + 100, self.y + 100
+def collide(a, b):
+    left_a,bottom_a,right_a,top_a=a.get_bb()
+    left_b, bottom_b, right_b, top_b = b.get_bb()
+    if left_a>right_b:return False
+    if right_a<left_b:return False
+    if top_a<bottom_b:return False
+    if bottom_a>top_b:return False
+    return True
 def damagenom():
     global nom
     global attack
     global stage
     global life
+    global attack2
     for i in attack:
         if(nom.powerup==1):
             pass
@@ -392,13 +422,15 @@ def damagenom():
                 pass
 
 def enter():
-    global nom,baground,attack,back,life,font,bgm
+    global nom,baground,attack,back,life,font,bgm,attack2
     nom=Nom()
     baground=Baground()
     life=Life()
     i=0
     font=load_font('ENCR10B.TTF')
     attack=[Attack() for i in range(10)]
+    attack2=[BigAttack() for i in range(10)]
+    attack=attack+attack2
     back=Background()
     bgm=load_music('nomplay.mp3')
     bgm.set_volume(64)
@@ -407,7 +439,7 @@ def enter():
 
 
 def exit():
-    global nom, baground, attack, back,font,life,stage,score,bgm
+    global nom, baground, attack, back,font,life,stage,score,bgm,attack2
     del(nom)
     del(baground)
     del(attack)
@@ -415,6 +447,7 @@ def exit():
     del(life)
     del(font)
     del(bgm)
+    del(attack2)
     stage = 0
     score = 0
     pass
@@ -453,6 +486,7 @@ def update(frame_time):
     nom.update()
     if (score == 1030):
         game_framework.change_state(bossready)
+
     pass
 def draw(frame_time):
     global speed,attack,score
