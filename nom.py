@@ -254,7 +254,7 @@ class Life:
                 self.image.clip_draw(0, Nom.stage*50, 50, 50, 80, 250+i*50)
         elif (Nom.stage == 2):
             for i in range(self.switch):
-                self.image.clip_draw(0, Nom.stage * 50, 50, 50, 450 - i * 50, 800)
+                self.image.clip_draw(0, Nom.stage * 50, 50, 50, 350 - i * 50, 80)
         elif (Nom.stage == 3):
             for i in range(self.switch):
                 self.image.clip_draw(0, Nom.stage * 50, 50, 50, 720, 350-i*50)

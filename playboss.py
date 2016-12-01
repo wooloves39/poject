@@ -48,7 +48,6 @@ def exit():
     del(attack)
     del(item2)
 
-
     pass
 
 
@@ -118,6 +117,8 @@ def handle_events(frame_time):
             game_framework.quit()
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             game_framework.change_state(title)
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_z:
+            boss.life=boss.life-1
         else:
             nom.handle_event(event)
     pass
