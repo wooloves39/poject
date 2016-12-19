@@ -476,7 +476,7 @@ def handle_events(frame_time):
     pass
 
 def update(frame_time):
-    global attack,score,bosstimer
+    global attack,score,bosstimer,stage
     score+=1
     back.update()
 
@@ -485,6 +485,7 @@ def update(frame_time):
         i.update()
     nom.update()
     if (score == 1030):
+        stage=0
         game_framework.change_state(bossready)
 
     pass

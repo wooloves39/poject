@@ -22,7 +22,6 @@ class attack_item:
     def draw(self):
         if(self.timer==0):
             self.image.draw(self.x ,self.y)
-            draw_rectangle(*self.get_bb())
 
         pass
     def update(self,frame_time,stage):
@@ -99,7 +98,6 @@ class bonus_item:
     def draw(self):
         if(self.sw==0):
             if (self.timer == 0):
-                draw_rectangle(*self.get_bb())
                 self.image.clip_draw(0, self.state * 50, 50, 50, self.x, self.y)
         pass
     def update(self, frame_time, stage):

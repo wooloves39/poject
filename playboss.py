@@ -78,14 +78,15 @@ def update(frame_time):
             if nom.attaktime == 0:
                 if collide(nom, at):
                     boss.ck=1
+                    nom.life -= 1
+                    life.switch -= 1
                     attack.remove(at)
                     nom.state+=5
                     nom.attacktime=1
                     if nom.state>10:
                         nom.state-=5
                     nom.frame=0
-                    nom.life-=1
-                    life.switch-=1
+
         nom.update(frame_time)
     pass
 
