@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="03d464fd-55ab-44bc-9d82-b17a78a454bb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/item.py" afterPath="$PROJECT_DIR$/item.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main_game.py" afterPath="$PROJECT_DIR$/main_game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/playboss.py" afterPath="$PROJECT_DIR$/playboss.py" />
     </list>
     <ignored path="Lab03.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="playboss.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="playboss.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/playboss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-200">
-              <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+            <state relative-caret-position="-1050">
+              <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -37,11 +34,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="game_framework.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/game_framework.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="194">
+              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="attack.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/attack.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1350">
-              <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
+            <state relative-caret-position="275">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -50,17 +57,17 @@
       <file leaf-file-name="boss.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/boss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+            <state relative-caret-position="225">
+              <caret line="26" column="30" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="item.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="item.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/item.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-943">
+            <state relative-caret-position="157">
               <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
               <folding />
             </state>
@@ -70,7 +77,7 @@
       <file leaf-file-name="nom.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nom.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
+            <state relative-caret-position="6150">
               <caret line="248" column="38" selection-start-line="248" selection-start-column="38" selection-end-line="248" selection-end-column="38" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -82,7 +89,7 @@
       <file leaf-file-name="main_game.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main_game.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11478">
+            <state relative-caret-position="407">
               <caret line="478" column="36" selection-start-line="478" selection-start-column="36" selection-end-line="478" selection-end-column="36" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
@@ -94,7 +101,7 @@
       <file leaf-file-name="bossready.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bossready.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
+            <state relative-caret-position="1600">
               <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -106,8 +113,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -140,15 +147,15 @@
         <option value="$PROJECT_DIR$/game_framework_notime.py" />
         <option value="$PROJECT_DIR$/2013182039.txt" />
         <option value="$PROJECT_DIR$/title.py" />
-        <option value="$PROJECT_DIR$/boss.py" />
         <option value="$PROJECT_DIR$/clear.py" />
         <option value="$PROJECT_DIR$/bossready.py" />
         <option value="$PROJECT_DIR$/attack.py" />
         <option value="$PROJECT_DIR$/nom.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/main_game.py" />
-        <option value="$PROJECT_DIR$/playboss.py" />
         <option value="$PROJECT_DIR$/item.py" />
+        <option value="$PROJECT_DIR$/boss.py" />
+        <option value="$PROJECT_DIR$/playboss.py" />
       </list>
     </option>
   </component>
@@ -184,6 +191,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -218,11 +226,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -485,12 +494,12 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21930745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32491767" sideWeight="0.636936" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32491767" sideWeight="0.64165795" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.36306402" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.35834208" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49370408" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39956093" sideWeight="0.49375" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -592,14 +601,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/game_framework_notime.py" />
-    <entry file="file://$PROJECT_DIR$/game_framework.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1650">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2013182039.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -658,39 +659,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bossready.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main_game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11478">
-          <caret line="478" column="36" selection-start-line="478" selection-start-column="36" selection-end-line="478" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nom.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
+        <state relative-caret-position="6150">
           <caret line="248" column="38" selection-start-line="248" selection-start-column="38" selection-end-line="248" selection-end-column="38" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
@@ -698,37 +669,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/playboss.py">
+    <entry file="file://$PROJECT_DIR$/bossready.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-200">
-          <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
+        <state relative-caret-position="1600">
+          <caret line="68" column="21" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="21" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/attack.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="71" column="65" selection-start-line="71" selection-start-column="65" selection-end-line="71" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/boss.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/item.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-943">
+        <state relative-caret-position="157">
           <caret line="99" column="33" selection-start-line="99" selection-start-column="33" selection-end-line="99" selection-end-column="33" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/game_framework.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main_game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="478" column="36" selection-start-line="478" selection-start-column="36" selection-end-line="478" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/boss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="26" column="30" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/attack.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/playboss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1050">
+          <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
